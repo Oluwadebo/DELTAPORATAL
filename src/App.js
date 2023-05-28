@@ -7,12 +7,14 @@ import Admin from "./component/Admin";
 import RegistAdmin from "./component/RegistAdmin";
 import Viewproduct from "./component/Viewproduct";
 import Dashboards from "./component/Dashboards";
+import Home from "./component/Home";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboards/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Dashboards" element={<Dashboards />} />
         {/* <Route path="/" element={<Dashboard />} /> */}
         <Route path="/Registration" element={<Registration />} />
         <Route path="/RegistAdmin" element={<RegistAdmin />} />
