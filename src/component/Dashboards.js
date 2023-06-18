@@ -32,7 +32,7 @@ const Dashboards = () => {
         };
     }, []);
     const formattedTime = currentTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", });
-    const period = currentTime.getHours() < 12 ? "morning" : "evening";
+    const period = currentTime.getHours() < 12 ? "Morning" : currentTime.getHours() < 17 ? "Afternoon" : "Evening";
 
     var counter = 1;
     const generateStaffID = () => {
@@ -51,21 +51,30 @@ const Dashboards = () => {
             <div className="">
                 <div className="container-fluid fixed-top">
                     <div className="row">
-                        <div className="col-md-1 col-3 side-bar">
+                        <div className="col-md-2 col-3 side-bar">
                             <center>
                                 <img src={PROf} alt="PROf" height="60px" className='img my-2' /><hr />
-                                <Link to="/" className='cart'>
-                                    <p className='btn1 active'><i className="fa fs-5 fa-dashboard ms-0 px-1"></i>Home</p>
-                                </Link>
-                                <Link to="/" className='cart'>
-                                    <p className='btn1'><i className="fa fa-user-circle ms-0 px-1"></i>Profile</p>
-                                </Link>
-                                <Link to="/" className='cart'>
-                                    <p className='btn1'><i className="fa fa-inbox ms-0 px-1"></i>Message</p>
-                                </Link>
                             </center>
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1 active'><i className="fa fa-home px-3"></i>Dashboard</p>
+                            </Link><hr />
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1'><i className="fa fa-building px-3"></i>Department</p>
+                            </Link><hr />
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1'><i className="fa-solid fa-volume-low px-3"></i>News & Event</p>
+                            </Link><hr />
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1'><i className="fa-solid fa-clock-rotate-left px-3"></i>ERP</p>
+                            </Link><hr />
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1'><i className="fa-solid fa-list-check px-3"></i>Task</p>
+                            </Link><hr />
+                            <Link to="/Dashboards" className='cart'>
+                                <p className='btn1'><i className="fa-solid fa-code-pull-request px-3"></i>Requests</p>
+                            </Link>
                         </div>
-                        <div className="col-md-11 col-9 p-0 m-0">
+                        <div className="col-md-10 col-9 p-0 m-0">
                             <div className="rightside-bartop pt-2">
                                 <nav className="navbar navbar-expand-lg">
                                     <div className="container-fluid">
@@ -90,8 +99,65 @@ const Dashboards = () => {
                                     </div>
                                 </nav>
                             </div>
-                            <div className="scrollSpy px-2">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptatum enim laudantium reprehenderit veniam voluptate ipsum delectus error? Neque esse sapiente iure dignissimos! Ex molestiae non deleniti, sapiente quo earum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique numquam iure optio delectus ea saepe culpa sequi quisquam iusto molestias commodi illum expedita tempore esse, cumque vel omnis placeat! Dolore.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptatum enim laudantium reprehenderit veniam voluptate ipsum delectus error? Neque esse sapiente iure dignissimos! Ex molestiae non deleniti, sapiente quo earum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique numquam iure optio delectus ea saepe culpa sequi quisquam iusto molestias commodi illum expedita tempore esse, cumque vel omnis placeat! Dolore.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui voluptatum enim laudantium reprehenderit veniam voluptate ipsum delectus error? Neque esse sapiente iure dignissimos! Ex molestiae non deleniti, sapiente quo earum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique numquam iure optio delectus ea saepe culpa sequi quisquam iusto molestias commodi illum expedita tempore esse, cumque vel omnis placeat! Dolore.</p>
+                            <div className="scrollSpy">
+                                <div className="row mx-1">
+                                    <div className="col-md-8 px-4">
+                                        <div className="row">
+                                            <div className="col-12 light-glass my-2 p-2">
+                                                <div className="row">
+                                                    <h5 className='heads py-2'>Latest Announcement & News</h5>
+                                                    <div className="col-md-4 d-flex">
+                                                        <div className="pe-2">
+                                                            <img src={PROf} alt="PROf" height="60px" className='img my-2' />
+                                                        </div>
+                                                        <div className="pt-2">
+                                                            <h5 className='heads'>Lorem ipsum</h5>
+                                                            <p>Lorem ipsum dolor sit amet consectetur </p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-4 d-flex">
+                                                        <div className="pe-2">
+                                                            <img src={PROf} alt="PROf" height="60px" className='img my-2' />
+                                                        </div>
+                                                        <div className="pt-2">
+                                                            <h5 className='heads'>Lorem ipsum</h5>
+                                                            <p>Lorem ipsum dolor sit amet consectetur </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-5 light-glass mt-4 mb-2 p-2 mx-md-4 ">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ipsam eum laborum laboriosam deserunt suscipit assumenda, deleniti tempore dolorem veritatis tempora incidunt quisquam, eius autem repudiandae commodi ducimus quae!</p>
+                                            </div>
+                                            <div className="col-md-5 light-glass mt-4 mb-2 p-2 mx-md-4">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ipsam eum laborum laboriosam deserunt suscipit assumenda, deleniti tempore dolorem veritatis tempora incidunt quisquam, eius autem repudiandae commodi ducimus quae!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-4 px-4">
+                                        <div className="row">
+                                            <div className="col-12 light-glass my-2 p-2">
+                                                <h5 className='heads py-2'>Upcoming Birthdays</h5>
+                                                <div className="col-md-12 d-flex">
+                                                    <div className="pe-2">
+                                                        <img src={PROf} alt="PROf" height="60px" className='img my-2' />
+                                                    </div>
+                                                    <div className="pt-2">
+                                                        <p>Lorem ipsum dolor sit amet consectetur </p>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-12 d-flex">
+                                                    <div className="pe-2">
+                                                        <img src={PROf} alt="PROf" height="60px" className='img my-2' />
+                                                    </div>
+                                                    <div className="pt-2">
+                                                        <p>Lorem ipsum dolor sit amet consectetur </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

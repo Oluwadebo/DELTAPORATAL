@@ -8,6 +8,7 @@ import RegistAdmin from "./component/RegistAdmin";
 import Viewproduct from "./component/Viewproduct";
 import Dashboards from "./component/Dashboards";
 import Home from "./component/Home";
+import Quise from "./component/Quise";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Dashboards" element={<Dashboards />} />
+        <Route path="/Quiz" element={<Quise/>} />
         {/* <Route path="/" element={<Dashboard />} /> */}
         <Route path="/Registration" element={<Registration />} />
         <Route path="/RegistAdmin" element={<RegistAdmin />} />

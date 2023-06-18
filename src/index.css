@@ -6,6 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #e2e2e2;
   transition: 0.5s;
+  height: 100%;
 }
 .header {
   /* background: #d4dfe6; */
@@ -176,7 +177,13 @@ body {
 }
 .scrollSpy {
   height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: rgba(255, 255, 255, 0.568);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
 }
 .scrollSpy::-webkit-scrollbar {
   display: none;
@@ -204,16 +211,35 @@ body {
 .rightside-bartop {
   background-color: #003399;
 }
-.navbar-toggler{
+.navbar-toggler {
   background: white;
   border: 0;
 }
-.navbar-toggler span{
+.navbar-toggler span {
   color: white;
 }
 code {
   font-family: "Courier New", monospace;
 }
+.glass {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+}
+.light-glass {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0.8;
+}
+.heads {
+  color: #007;
+}
+
 .colo {
   color: red;
 }
