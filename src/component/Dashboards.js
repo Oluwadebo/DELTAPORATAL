@@ -58,7 +58,7 @@ const Dashboards = () => {
                             <Link to="/Dashboards" className='cart'>
                                 <p className='btn1 active'><i className="fa fa-home px-3"></i>Dashboard</p>
                             </Link><hr />
-                            <Link to="/Dashboards" className='cart'>
+                            <Link to="/Quiz" className='cart'>
                                 <p className='btn1'><i className="fa fa-building px-3"></i>Department</p>
                             </Link><hr />
                             <Link to="/Dashboards" className='cart'>
