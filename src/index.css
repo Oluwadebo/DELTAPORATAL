@@ -223,6 +223,31 @@ body {
   background: #222;
   color: #fff;
 }
+.btn:disabled {
+  background-color: #fafafa;
+  color: #c7c7c7;
+  cursor: not-allowed;
+}
+.correct-answer {
+  background-color: green;
+  color: white;
+}
+
+.incorrect-answer {
+  background-color: red;
+  color: white;
+}
+.selected-button {
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: no-drop;
+  transition: all 0.3s;
+}
 #next-btn {
   background: #001e4d;
   color: #fff;
@@ -233,7 +258,6 @@ body {
   margin: 20px auto 0;
   border-radius: 4px;
   cursor: pointer;
-  display: none;
 }
 .cart {
   color: white;

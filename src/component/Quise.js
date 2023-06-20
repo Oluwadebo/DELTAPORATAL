@@ -10,6 +10,15 @@ const Quise = () => {
     const [month, setmonth] = useState("")
     const [year, setyear] = useState("")
     const [currentTime, setCurrentTime] = useState(new Date());
+    const [currentQuestionindex, setcurrentQuestionindex] = useState(0)
+    const [score, setscore] = useState(0)
+    const [currentQuestion, setcurrentQuestion] = useState("")
+    const [answers, setanswers] = useState([])
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [button, setbutton] = useState(false)
+    const [checkAnswer, setcheckAnswer] = useState()
+    const [totalCorrect, setTotalCorrect] = useState(0);
+    const [totalAnswered, setTotalAnswered] = useState(0);
 
     useEffect(() => {
         const timerID = setInterval(() => {
@@ -21,7 +30,6 @@ const Quise = () => {
             clearInterval(timerID);
         };
     }, [])
-
     useEffect(() => {
         const timerID = setInterval(() => {
             setCurrentTime(new Date());
@@ -37,6 +45,87 @@ const Quise = () => {
     const logout = () => {
         navigate("/")
     }
+
+    const questions = [
+        {
+            question: "Which is the largest animal in the world",
+            answers: [
+                { text: "Shark", correct: false },
+                { text: "Blue whale", correct: true },
+                { text: "Elephant", correct: false },
+                { text: "Giraffe", correct: false },
+            ]
+        },
+        {
+            question: "Which is the larget desert in the world",
+            answers: [
+                { text: "kalahari", correct: false },
+                { text: "Gobi", correct: false },
+                { text: "Sahara", correct: false },
+                { text: "Antarctica", correct: true },
+            ]
+        },
+        {
+            question: "Which is the smallest continent in the world",
+            answers: [
+                { text: "Asia", correct: false },
+                { text: "Australia", correct: true },
+                { text: "Arctic", correct: false },
+                { text: "Africa", correct: false },
+            ]
+        },
+        {
+            question: "Which is the smallest country in the world",
+            answers: [
+                { text: "Vatican city", correct: true },
+                { text: "Bhutan", correct: false },
+                { text: "Nepal", correct: false },
+                { text: "Shri lanka", correct: false },
+            ]
+        }
+    ];
+
+    useEffect(() => {
+        showQuestion()
+    }, [currentQuestionindex])
+
+    const showQuestion = () => {
+        let questionNo = currentQuestionindex + 1;
+        setcurrentQuestion(questionNo + ". " + questions[currentQuestionindex].question)
+        setanswers(questions[currentQuestionindex].answers)
+    }
+
+    const select = (Answerindex, val) => {
+        if (val) {
+            setbutton(prev => true)
+            setSelectedButton(Answerindex);
+            setTotalAnswered(totalAnswered + 1);
+            if (val.correct == true) {
+                setcheckAnswer(true)
+                setscore(score + 1);
+            } else {
+                setcheckAnswer(false)
+            }
+        }
+    }
+
+    const Nest = () => {
+        setbutton(prev => false)
+        setSelectedButton(null);
+        let cindex = currentQuestionindex + 1
+        if (cindex < questions.length) {
+            setcurrentQuestionindex(cindex)
+        } else {
+            setcurrentQuestionindex(0)
+        }
+    }
+    const getPercentageCorrect = () => {
+        if (totalAnswered > 0) {
+            return ((score / totalAnswered) * 100).toFixed(2);
+        } else {
+            return 0;
+        }
+    };
 
     return (
         <>
@@ -93,17 +182,25 @@ const Quise = () => {
                             </div>
                             <div className='quise'>
                                 <div className="net">
-                                    <div className="col-8 mt-2 mx-auto px-2 card">
-                                        <h1>Simple Quiz</h1><hr />
+                                    <div className="col-md-10 col-11 mt-2 mx-auto px-2 card">
+                                        <h1>Simple Quiz</h1>
+                                        <div>Total Score: {score}</div>
+                                        <div>Total Answered: {totalAnswered}</div>
+                                        <div>Percentage Correct: {getPercentageCorrect()}%</div><hr />
                                         <div className="quiz">
-                                            <h2 id='question'>Question goes here</h2>
-                                            <div id="ansewr-buttons">
-                                                <button className='btn'>Answer 1</button>
-                                                <button className='btn'>Answer 2</button>
-                                                <button className='btn'>Answer 3</button>
-                                                <button className='btn'>Answer 4</button>
-                                            </div>
-                                            <button id='next-btn'>Next</button>
+                                            <h2>{currentQuestion}?</h2>
+                                            {answers.map((item, index) => (
+                                                <div id="answer-buttons">
+                                                    <button className={selectedButton == index ? checkAnswer == true ? 'correct-answer selected-button' : 'incorrect-answer selected-button' : 'btn'} disabled={selectedButton != null && selectedButton != index} onClick={() => select(index, item)}>{item.text}</button>
+                                                </div>
+                                            ))}
+                                            <center>
+                                                {button && (
+                                                    <div className="">
+                                                        <button id='next-btn' onClick={Nest}>Next</button>
+                                                    </div>
+                                                )}
+                                            </center>
                                         </div>
                                     </div>
                                 </div>
